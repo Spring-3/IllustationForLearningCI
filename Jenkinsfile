@@ -16,7 +16,7 @@ stage('Docker Build') {
             steps {
                 script {
                     // Building a Docker image
-                    def image = docker.build("Illustration For CICD Learning")
+                    def image = docker.build("spring3/illustration")
                 }
             }
         }
@@ -24,7 +24,7 @@ stage('Docker Build') {
             steps {
                 script {
                     // Running the Docker container
-                    docker.image("Illustration For CICD Learning").run()
+                    docker.image("spring3/illustration").run()
                 }
             }
         }
