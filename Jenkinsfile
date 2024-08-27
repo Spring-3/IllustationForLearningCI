@@ -3,12 +3,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'javac Main.java'
+                // Change 'sh' to 'bat' for Windows
+                bat 'javac Main.java'
             }
         }
         stage('Test') {
             steps {
-                sh 'java Main'
+                // Change 'sh' to 'bat' for Windows
+                bat 'java Main'
             }
         }
     }
