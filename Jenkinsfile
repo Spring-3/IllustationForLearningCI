@@ -3,14 +3,29 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Change 'sh' to 'bat' for Windows
-                bat 'javac Main.java'
+                sh 'javac Main.java'
             }
         }
         stage('Test') {
             steps {
-                // Change 'sh' to 'bat' for Windows
-                bat 'java Main'
+                sh 'java Main'
+            }
+        }
+
+stage('Docker Build') {
+            steps {
+                script {
+                    // Building a Docker image
+                    def image = docker.build("Illustration For CICD Learning")
+                }
+            }
+        }
+        stage('Docker Run') {
+            steps {
+                script {
+                    // Running the Docker container
+                    docker.image("Illustration For CICD Learning").run()
+                }
             }
         }
     }
