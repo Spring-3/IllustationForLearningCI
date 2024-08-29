@@ -9,4 +9,3 @@ COPY Main.class .
 
 # Run the application
 CMD ["java", "Main"]
-
